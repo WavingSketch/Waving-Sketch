@@ -6,4 +6,4 @@
 - `hash.h`: The hash function, from http://burtleburtle.net/bob/hash/evahash.html
 - `StreamSummary.h`: The data structure for `SS` and `USS`
 
-The contents of other source codes are consistent with their file names.
+The contents of other sources are consistent with their names.
