@@ -1,0 +1,407 @@
+
+**Benchmark**
+
+1. Comparison with SS, USS, Count+Heap on ARE, CR and PR
+
+Memory size: 50KB
+
+WavingSketch4:	ARE: 0.090973	CR: 0.810215	PR: 0.449819
+WavingSketch8:	ARE: 0.051634	CR: 0.819229	PR: 0.380642
+WavingSketch16:	ARE: 0.029987	CR: 0.823235	PR: 0.334418
+WavingSketch32:	ARE: 0.016688	CR: 0.826239	PR: 0.314525
+          SS:	ARE: 6.977248	CR: 0.123185	PR: 0.492000
+         USS:	ARE: 7.317768	CR: 0.118177	PR: 0.472000
+  Count_Heap:	ARE: 0.000000	CR: 1.000000	PR: 1.000000
+     WSSIMD4:	ARE: 0.128757	CR: 0.759639	PR: 0.483892
+     WSSIMD8:	ARE: 0.065272	CR: 0.802704	PR: 0.385893
+    WSSIMD16:	ARE: 0.035548	CR: 0.808212	PR: 0.345241
+    WSSIMD32:	ARE: 0.020682	CR: 0.817727	PR: 0.310220
+WavingSketchMC<4, 16>:	ARE: 0.018329	CR: 0.810215	PR: 0.832305
+WavingSketchMC<8, 16>:	ARE: 0.004724	CR: 0.910366	PR: 0.826739
+WavingSketchMC<16, 16>:	ARE: 0.003161	CR: 0.928893	PR: 0.838608
+WavingSketchMC<32, 16>:	ARE: 0.002120	CR: 0.910366	PR: 0.781599
+WSSIMDMC<4, 16>:	ARE: 0.018329	CR: 0.810215	PR: 0.832305
+WSSIMDMC<8, 16>:	ARE: 0.004724	CR: 0.910366	PR: 0.826739
+WSSIMDMC<16, 16>:	ARE: 0.003161	CR: 0.928893	PR: 0.838608
+WSSIMDMC<32, 16>:	ARE: 0.002120	CR: 0.910366	PR: 0.781599
+
+Memory size: 100KB
+
+WavingSketch4:	ARE: 0.007649	CR: 0.958438	PR: 0.794521
+WavingSketch8:	ARE: 0.001497	CR: 0.962944	PR: 0.905794
+WavingSketch16:	ARE: 0.000895	CR: 0.969454	PR: 0.991295
+WavingSketch32:	ARE: 0.000519	CR: 0.971958	PR: 0.998971
+          SS:	ARE: 3.773396	CR: 0.224837	PR: 0.449000
+         USS:	ARE: 3.826656	CR: 0.224337	PR: 0.448000
+  Count_Heap:	ARE: 0.000000	CR: 1.000000	PR: 1.000000
+     WSSIMD4:	ARE: 0.030658	CR: 0.926890	PR: 0.681266
+     WSSIMD8:	ARE: 0.003797	CR: 0.955934	PR: 0.836914
+    WSSIMD16:	ARE: 0.001084	CR: 0.969955	PR: 0.988265
+    WSSIMD32:	ARE: 0.000426	CR: 0.968453	PR: 1.000000
+WavingSketchMC<4, 16>:	ARE: 0.002797	CR: 0.954432	PR: 0.968496
+WavingSketchMC<8, 16>:	ARE: 0.000211	CR: 0.992989	PR: 0.996482
+WavingSketchMC<16, 16>:	ARE: 0.000211	CR: 0.996995	PR: 0.999498
+WavingSketchMC<32, 16>:	ARE: 0.000421	CR: 0.994992	PR: 0.998994
+WSSIMDMC<4, 16>:	ARE: 0.002797	CR: 0.954432	PR: 0.968496
+WSSIMDMC<8, 16>:	ARE: 0.000211	CR: 0.992989	PR: 0.996482
+WSSIMDMC<16, 16>:	ARE: 0.000211	CR: 0.996995	PR: 0.999498
+WSSIMDMC<32, 16>:	ARE: 0.000421	CR: 0.994992	PR: 0.998994
+
+Memory size: 150KB
+
+WavingSketch4:	ARE: 0.001695	CR: 0.980971	PR: 0.944096
+WavingSketch8:	ARE: 0.000201	CR: 0.994492	PR: 0.993000
+WavingSketch16:	ARE: 0.000160	CR: 0.994492	PR: 0.999497
+WavingSketch32:	ARE: 0.000198	CR: 0.994492	PR: 0.999497
+          SS:	ARE: 2.361267	CR: 0.293941	PR: 0.391333
+         USS:	ARE: 2.333501	CR: 0.296445	PR: 0.394667
+  Count_Heap:	ARE: 0.376793	CR: 0.109664	PR: 0.087600
+     WSSIMD4:	ARE: 0.006937	CR: 0.970456	PR: 0.875339
+     WSSIMD8:	ARE: 0.001474	CR: 0.990486	PR: 0.978239
+    WSSIMD16:	ARE: 0.000336	CR: 0.992489	PR: 0.999496
+    WSSIMD32:	ARE: 0.000339	CR: 0.993991	PR: 1.000000
+WavingSketchMC<4, 16>:	ARE: 0.000798	CR: 0.987982	PR: 0.990959
+WavingSketchMC<8, 16>:	ARE: 0.000096	CR: 0.996995	PR: 0.999498
+WavingSketchMC<16, 16>:	ARE: 0.000077	CR: 0.997997	PR: 0.999498
+WavingSketchMC<32, 16>:	ARE: 0.000092	CR: 1.000000	PR: 1.000000
+WSSIMDMC<4, 16>:	ARE: 0.000798	CR: 0.987982	PR: 0.990959
+WSSIMDMC<8, 16>:	ARE: 0.000096	CR: 0.996995	PR: 0.999498
+WSSIMDMC<16, 16>:	ARE: 0.000077	CR: 0.997997	PR: 0.999498
+WSSIMDMC<32, 16>:	ARE: 0.000092	CR: 1.000000	PR: 1.000000
+
+Memory size: 200KB
+
+WavingSketch4:	ARE: 0.000962	CR: 0.990486	PR: 0.983101
+WavingSketch8:	ARE: 0.000119	CR: 0.996995	PR: 1.000000
+WavingSketch16:	ARE: 0.000148	CR: 0.996495	PR: 1.000000
+WavingSketch32:	ARE: 0.000132	CR: 0.997496	PR: 0.999498
+          SS:	ARE: 1.712256	CR: 0.385578	PR: 0.385000
+         USS:	ARE: 1.653622	CR: 0.373560	PR: 0.373000
+  Count_Heap:	ARE: 0.091282	CR: 0.261392	PR: 0.208800
+     WSSIMD4:	ARE: 0.004071	CR: 0.985979	PR: 0.943460
+     WSSIMD8:	ARE: 0.000235	CR: 0.996995	PR: 1.000000
+    WSSIMD16:	ARE: 0.000106	CR: 0.996495	PR: 1.000000
+    WSSIMD32:	ARE: 0.000130	CR: 0.995994	PR: 1.000000
+WavingSketchMC<4, 16>:	ARE: 0.000071	CR: 0.997496	PR: 0.998496
+WavingSketchMC<8, 16>:	ARE: 0.000046	CR: 0.999499	PR: 1.000000
+WavingSketchMC<16, 16>:	ARE: 0.000020	CR: 1.000000	PR: 0.999499
+WavingSketchMC<32, 16>:	ARE: 0.000044	CR: 0.999499	PR: 0.999499
+WSSIMDMC<4, 16>:	ARE: 0.000071	CR: 0.997496	PR: 0.998496
+WSSIMDMC<8, 16>:	ARE: 0.000046	CR: 0.999499	PR: 1.000000
+WSSIMDMC<16, 16>:	ARE: 0.000020	CR: 1.000000	PR: 0.999499
+WSSIMDMC<32, 16>:	ARE: 0.000044	CR: 0.999499	PR: 0.999499
+
+Memory size: 250KB
+
+WavingSketch4:	ARE: 0.000151	CR: 0.995994	PR: 0.994997
+WavingSketch8:	ARE: 0.000055	CR: 0.999499	PR: 0.999499
+WavingSketch16:	ARE: 0.000051	CR: 0.999499	PR: 1.000000
+WavingSketch32:	ARE: 0.000019	CR: 0.999499	PR: 0.999499
+          SS:	ARE: 1.301233	CR: 0.435653	PR: 0.348000
+         USS:	ARE: 1.266810	CR: 0.427141	PR: 0.341200
+  Count_Heap:	ARE: 0.029558	CR: 0.389084	PR: 0.310800
+     WSSIMD4:	ARE: 0.001276	CR: 0.991487	PR: 0.978261
+     WSSIMD8:	ARE: 0.000084	CR: 0.997997	PR: 0.998497
+    WSSIMD16:	ARE: 0.000038	CR: 1.000000	PR: 0.999499
+    WSSIMD32:	ARE: 0.000016	CR: 0.999499	PR: 0.999499
+WavingSketchMC<4, 16>:	ARE: 0.000042	CR: 0.997496	PR: 0.998496
+WavingSketchMC<8, 16>:	ARE: 0.000024	CR: 1.000000	PR: 1.000000
+WavingSketchMC<16, 16>:	ARE: 0.000019	CR: 1.000000	PR: 1.000000
+WavingSketchMC<32, 16>:	ARE: 0.000014	CR: 1.000000	PR: 1.000000
+WSSIMDMC<4, 16>:	ARE: 0.000042	CR: 0.997496	PR: 0.998496
+WSSIMDMC<8, 16>:	ARE: 0.000024	CR: 1.000000	PR: 1.000000
+WSSIMDMC<16, 16>:	ARE: 0.000019	CR: 1.000000	PR: 1.000000
+WSSIMDMC<32, 16>:	ARE: 0.000014	CR: 1.000000	PR: 1.000000
+
+Memory size: 300KB
+
+WavingSketch4:	ARE: 0.000275	CR: 0.997997	PR: 0.997497
+WavingSketch8:	ARE: 0.000031	CR: 0.998998	PR: 1.000000
+WavingSketch16:	ARE: 0.000011	CR: 1.000000	PR: 0.999499
+WavingSketch32:	ARE: 0.000022	CR: 0.999499	PR: 1.000000
+          SS:	ARE: 1.036915	CR: 0.498748	PR: 0.332000
+         USS:	ARE: 1.013031	CR: 0.509765	PR: 0.339333
+  Count_Heap:	ARE: 0.017132	CR: 0.497246	PR: 0.397200
+     WSSIMD4:	ARE: 0.001025	CR: 0.996495	PR: 0.991036
+     WSSIMD8:	ARE: 0.000043	CR: 0.998998	PR: 1.000000
+    WSSIMD16:	ARE: 0.000016	CR: 0.998498	PR: 0.999499
+    WSSIMD32:	ARE: 0.000022	CR: 1.000000	PR: 1.000000
+WavingSketchMC<4, 16>:	ARE: 0.000046	CR: 0.998998	PR: 0.998998
+WavingSketchMC<8, 16>:	ARE: 0.000011	CR: 1.000000	PR: 1.000000
+WavingSketchMC<16, 16>:	ARE: 0.000005	CR: 1.000000	PR: 1.000000
+WavingSketchMC<32, 16>:	ARE: 0.000005	CR: 0.999499	PR: 0.999499
+WSSIMDMC<4, 16>:	ARE: 0.000046	CR: 0.998998	PR: 0.998998
+WSSIMDMC<8, 16>:	ARE: 0.000011	CR: 1.000000	PR: 1.000000
+WSSIMDMC<16, 16>:	ARE: 0.000005	CR: 1.000000	PR: 1.000000
+WSSIMDMC<32, 16>:	ARE: 0.000005	CR: 0.999499	PR: 0.999499
+
+2. Comparison with SS, USS, Count+Heap on Throughput
+
+Memory size: 50KB
+
+WavingSketch4:	thp = 35.820902
+WavingSketch8:	thp = 30.239317
+WavingSketch16:	thp = 29.350525
+WavingSketch32:	thp = 24.431091
+          SS:	thp = 10.496591
+         USS:	thp = 3.132800
+  Count_Heap:	thp = 7.449904
+     WSSIMD4:	thp = 38.761305
+     WSSIMD8:	thp = 37.947911
+    WSSIMD16:	thp = 34.390965
+    WSSIMD32:	thp = 32.256187
+WavingSketchMC<4, 16>:	thp = 32.313681
+WavingSketchMC<8, 16>:	thp = 27.501071
+WavingSketchMC<16, 16>:	thp = 25.891297
+WavingSketchMC<32, 16>:	thp = 20.603696
+WSSIMDMC<4, 16>:	thp = 39.402168
+WSSIMDMC<8, 16>:	thp = 36.506712
+WSSIMDMC<16, 16>:	thp = 34.666087
+WSSIMDMC<32, 16>:	thp = 32.587804
+
+Memory size: 100KB
+
+WavingSketch4:	thp = 36.135368
+WavingSketch8:	thp = 30.780808
+WavingSketch16:	thp = 29.522804
+WavingSketch32:	thp = 25.092240
+          SS:	thp = 10.475657
+         USS:	thp = 3.496961
+  Count_Heap:	thp = 7.433534
+     WSSIMD4:	thp = 38.753581
+     WSSIMD8:	thp = 38.064945
+    WSSIMD16:	thp = 34.637621
+    WSSIMD32:	thp = 32.354376
+WavingSketchMC<4, 16>:	thp = 33.187939
+WavingSketchMC<8, 16>:	thp = 27.952777
+WavingSketchMC<16, 16>:	thp = 26.586588
+WavingSketchMC<32, 16>:	thp = 20.969607
+WSSIMDMC<4, 16>:	thp = 39.224695
+WSSIMDMC<8, 16>:	thp = 36.431867
+WSSIMDMC<16, 16>:	thp = 34.629980
+WSSIMDMC<32, 16>:	thp = 32.598248
+
+Memory size: 150KB
+
+WavingSketch4:	thp = 36.517784
+WavingSketch8:	thp = 31.198174
+WavingSketch16:	thp = 30.190871
+WavingSketch32:	thp = 25.690462
+          SS:	thp = 10.950466
+         USS:	thp = 3.730855
+  Count_Heap:	thp = 9.898670
+     WSSIMD4:	thp = 38.750220
+     WSSIMD8:	thp = 38.162073
+    WSSIMD16:	thp = 34.942072
+    WSSIMD32:	thp = 32.661303
+WavingSketchMC<4, 16>:	thp = 33.826491
+WavingSketchMC<8, 16>:	thp = 28.438152
+WavingSketchMC<16, 16>:	thp = 27.137597
+WavingSketchMC<32, 16>:	thp = 21.360818
+WSSIMDMC<4, 16>:	thp = 39.216836
+WSSIMDMC<8, 16>:	thp = 36.458066
+WSSIMDMC<16, 16>:	thp = 34.433169
+WSSIMDMC<32, 16>:	thp = 32.742352
+
+Memory size: 200KB
+
+WavingSketch4:	thp = 36.587494
+WavingSketch8:	thp = 31.559169
+WavingSketch16:	thp = 30.322541
+WavingSketch32:	thp = 25.830138
+          SS:	thp = 10.518582
+         USS:	thp = 3.904414
+  Count_Heap:	thp = 9.834173
+     WSSIMD4:	thp = 38.750461
+     WSSIMD8:	thp = 38.212583
+    WSSIMD16:	thp = 35.201315
+    WSSIMD32:	thp = 32.849063
+WavingSketchMC<4, 16>:	thp = 34.111255
+WavingSketchMC<8, 16>:	thp = 28.680950
+WavingSketchMC<16, 16>:	thp = 27.416329
+WavingSketchMC<32, 16>:	thp = 21.699623
+WSSIMDMC<4, 16>:	thp = 39.087714
+WSSIMDMC<8, 16>:	thp = 36.408692
+WSSIMDMC<16, 16>:	thp = 34.755626
+WSSIMDMC<32, 16>:	thp = 32.811390
+
+Memory size: 250KB
+
+WavingSketch4:	thp = 37.078395
+WavingSketch8:	thp = 32.004201
+WavingSketch16:	thp = 30.811101
+WavingSketch32:	thp = 26.216277
+          SS:	thp = 11.313037
+         USS:	thp = 4.051309
+  Count_Heap:	thp = 9.417765
+     WSSIMD4:	thp = 38.656752
+     WSSIMD8:	thp = 38.208037
+    WSSIMD16:	thp = 35.205412
+    WSSIMD32:	thp = 32.904079
+WavingSketchMC<4, 16>:	thp = 34.602058
+WavingSketchMC<8, 16>:	thp = 29.191402
+WavingSketchMC<16, 16>:	thp = 27.669651
+WavingSketchMC<32, 16>:	thp = 22.116219
+WSSIMDMC<4, 16>:	thp = 39.012517
+WSSIMDMC<8, 16>:	thp = 36.303718
+WSSIMDMC<16, 16>:	thp = 34.806017
+WSSIMDMC<32, 16>:	thp = 32.284069
+
+Memory size: 300KB
+
+WavingSketch4:	thp = 37.260943
+WavingSketch8:	thp = 31.898347
+WavingSketch16:	thp = 30.981696
+WavingSketch32:	thp = 26.405498
+          SS:	thp = 11.186230
+         USS:	thp = 4.189215
+  Count_Heap:	thp = 9.668345
+     WSSIMD4:	thp = 38.515487
+     WSSIMD8:	thp = 38.067395
+    WSSIMD16:	thp = 35.223436
+    WSSIMD32:	thp = 32.907824
+WavingSketchMC<4, 16>:	thp = 34.844617
+WavingSketchMC<8, 16>:	thp = 29.277024
+WavingSketchMC<16, 16>:	thp = 28.004001
+WavingSketchMC<32, 16>:	thp = 22.172791
+WSSIMDMC<4, 16>:	thp = 38.832984
+WSSIMDMC<8, 16>:	thp = 36.170672
+WSSIMDMC<16, 16>:	thp = 34.424492
+WSSIMDMC<32, 16>:	thp = 32.833549
+
+3. Comparison with compressed WavingSketch on ARE, CR and PR
+The first line uses NO compression
+The second line compresses from memory size 320KB, no-error first
+
+Memory size: 10KB
+
+WavingSketch8:	ARE: 0.846710	CR: 0.296945	PR: 0.511207
+WavingSketch8:	ARE: 0.000000	CR: 0.585378	PR: 1.000000
+
+Memory size: 20KB
+
+WavingSketch8:	ARE: 0.343123	CR: 0.496745	PR: 0.447250
+WavingSketch8:	ARE: 0.000000	CR: 0.897847	PR: 1.000000
+
+Memory size: 40KB
+
+WavingSketch8:	ARE: 0.092452	CR: 0.746620	PR: 0.389804
+WavingSketch8:	ARE: 0.000002	CR: 0.979970	PR: 1.000000
+
+Memory size: 80KB
+
+WavingSketch8:	ARE: 0.004143	CR: 0.939910	PR: 0.713417
+WavingSketch8:	ARE: 0.000009	CR: 0.995994	PR: 1.000000
+
+Memory size: 160KB
+
+WavingSketch8:	ARE: 0.000374	CR: 0.995994	PR: 0.998494
+WavingSketch8:	ARE: 0.000012	CR: 0.999499	PR: 1.000000
+
+Memory size: 320KB
+
+WavingSketch8:	ARE: 0.000012	CR: 0.999499	PR: 1.000000
+WavingSketch8:	ARE: 0.000012	CR: 0.999499	PR: 1.000000
+
+4. Comparison with expanded WavingSketch on ARE, CR and PR
+The first line uses NO expansion
+The second line expands to memory size 320KB after half of the elements inserted, with incast copied
+
+Memory size: 10KB
+
+WavingSketch8:	ARE: 0.846710	CR: 0.296945	PR: 0.511207
+WavingSketch8:	ARE: 0.445984	CR: 0.559339	PR: 0.659386
+
+Memory size: 20KB
+
+WavingSketch8:	ARE: 0.343123	CR: 0.496745	PR: 0.447250
+WavingSketch8:	ARE: 0.244270	CR: 0.629945	PR: 0.531924
+
+Memory size: 40KB
+
+WavingSketch8:	ARE: 0.092452	CR: 0.746620	PR: 0.389804
+WavingSketch8:	ARE: 0.072751	CR: 0.795193	PR: 0.649755
+
+Memory size: 80KB
+
+WavingSketch8:	ARE: 0.004143	CR: 0.939910	PR: 0.713417
+WavingSketch8:	ARE: 0.004785	CR: 0.944917	PR: 0.975194
+
+Memory size: 160KB
+
+WavingSketch8:	ARE: 0.000374	CR: 0.995994	PR: 0.998494
+WavingSketch8:	ARE: 0.000367	CR: 0.995994	PR: 1.000000
+
+Memory size: 320KB
+
+WavingSketch8:	ARE: 0.000012	CR: 0.999499	PR: 1.000000
+WavingSketch8:	ARE: 0.000012	CR: 0.999499	PR: 1.000000
+
+5. Comparison with compressed WavingSketchMC on ARE, CR and PR
+The first line uses NO compression
+The second line compresses from memory size 320KB, no-error first
+
+Memory size: 10KB
+
+WavingSketchMC<8, 16>:	ARE: 0.276483	CR: 0.278918	PR: 0.669471
+WavingSketchMC<8, 16>:	ARE: 0.000000	CR: 0.416625	PR: 1.000000
+
+Memory size: 20KB
+
+WavingSketchMC<8, 16>:	ARE: 0.074421	CR: 0.521282	PR: 0.627108
+WavingSketchMC<8, 16>:	ARE: 0.000000	CR: 0.768653	PR: 1.000000
+
+Memory size: 40KB
+
+WavingSketchMC<8, 16>:	ARE: 0.014475	CR: 0.835253	PR: 0.712212
+WavingSketchMC<8, 16>:	ARE: 0.000000	CR: 0.949925	PR: 1.000000
+
+Memory size: 80KB
+
+WavingSketchMC<8, 16>:	ARE: 0.000763	CR: 0.984977	PR: 0.984977
+WavingSketchMC<8, 16>:	ARE: 0.000004	CR: 0.982474	PR: 1.000000
+
+Memory size: 160KB
+
+WavingSketchMC<8, 16>:	ARE: 0.000068	CR: 0.999499	PR: 1.000000
+WavingSketchMC<8, 16>:	ARE: 0.000006	CR: 1.000000	PR: 1.000000
+
+Memory size: 320KB
+
+WavingSketchMC<8, 16>:	ARE: 0.000006	CR: 1.000000	PR: 1.000000
+WavingSketchMC<8, 16>:	ARE: 0.000006	CR: 1.000000	PR: 1.000000
+
+6. Comparison with expanded WavingSketchMC on ARE, CR and PR
+The first line uses NO expansion
+The second line expands to memory size 320KB after half of the elements inserted, with incast copied
+
+Memory size: 10KB
+
+WavingSketchMC<8, 16>:	ARE: 0.276483	CR: 0.278918	PR: 0.669471
+WavingSketchMC<8, 16>:	ARE: 0.322678	CR: 0.542313	PR: 0.804009
+
+Memory size: 20KB
+
+WavingSketchMC<8, 16>:	ARE: 0.074421	CR: 0.521282	PR: 0.627108
+WavingSketchMC<8, 16>:	ARE: 0.105295	CR: 0.607912	PR: 0.768354
+
+Memory size: 40KB
+
+WavingSketchMC<8, 16>:	ARE: 0.014475	CR: 0.835253	PR: 0.712212
+WavingSketchMC<8, 16>:	ARE: 0.014828	CR: 0.851778	PR: 0.940299
+
+Memory size: 80KB
+
+WavingSketchMC<8, 16>:	ARE: 0.000763	CR: 0.984977	PR: 0.984977
+WavingSketchMC<8, 16>:	ARE: 0.000961	CR: 0.985979	PR: 0.995953
+
+Memory size: 160KB
+
+WavingSketchMC<8, 16>:	ARE: 0.000068	CR: 0.999499	PR: 1.000000
+WavingSketchMC<8, 16>:	ARE: 0.000068	CR: 0.999499	PR: 1.000000
+
+Memory size: 320KB
+
+WavingSketchMC<8, 16>:	ARE: 0.000006	CR: 1.000000	PR: 1.000000
+WavingSketchMC<8, 16>:	ARE: 0.000006	CR: 1.000000	PR: 1.000000
+

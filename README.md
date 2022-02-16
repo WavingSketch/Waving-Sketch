@@ -2,8 +2,14 @@
 
 ## Introduction
 
-In high-speed data streams, frequent items refer to items whose number of appearances exceeds a predefined threshold. Finding frequent items is a classic and critical problem in many applications, and unbiased estimation is an important aspect of this problem. However, existing algorithms which can achieve unbiased estimation suffer from poor accuracy. In this paper, we propose a new algorithm, WavingSketch, which is more accurate than existing unbiased algorithms while achieving unbiasedness. WavingSketch is also generic, and we show how it can be applied to three other different applications: finding heavy changes, finding persistent items, and finding Super-Spreaders.	We prove its unbiasedness and a much lower error compared with the state-of-the-art technique, Unbiased SpaceSaving. Our experimental results show that, compared with Unbiased SpaceSaving, WavingSketch increases the insertion throughput by 4.50 times in average and decreases the error to up to 9 * 10^6 times (66 times in average) in finding frequent items. For other applications, WavingSketch can also decrease the error to up to 56 times.
+Finding top-k items in data streams is a fundamental problem in data mining. Existing algorithms that can achieve unbiased estimation suffer from poor accuracy. In this paper, we propose a new sketch, WavingSketch, which is much more accurate than existing unbiased algorithms. WavingSketch is generic, and we show how it can be applied to four applications: finding top-k frequent items, finding top-k heavy changes, finding top-k persistent items, and finding top-k Super-Spreaders. We theoretically prove that WavingSketch can provide unbiased estimation, and then give an error bound of our algorithm. Our experimental results show that, compared with the state-of-the-art, WavingSketch has 6 times higher insertion speed and at least 1000 times lower error rate in finding frequent items when memory size is tight. For other applications, WavingSketch also achieves higher accuracy and faster insertion speed. All related codes are open-sourced and available at Github. 
 
-## Descriptions
+## About this repo
 
-We provide the source codes of WavingSketch and the algorithms we compared with in the task of finding frequent items in `./src`. We also provide the source codes for the specific version of WavingSketch and the algorithms we compared with in the three applications in `./src`, respectively.
+- `Waving` contains codes of WavingSketch (including Multi-Counter WavingSketch) and the algorithms we compared with in the four tasks. 
+
+- `SIMD` contains codes of WavingSketch (including Multi-Counter WavingSketch) and the related algortihms implemented using SIMD optimization in the task of finding frequent items. It also contains the codes of our compression and expansion experiments. 
+
+- `Flink` contains codes of WavingSketch implemented on top of Apache Flink and a sample dataset used in Flink experiments. 
+
+- More details can be found in the folders. 
