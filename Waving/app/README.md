@@ -5,7 +5,7 @@
 
 - `./heavy-change`: implementation of WavingSketch in finding heavy changes. 
 
-- `./persistent`: implementation of WavingSketch in finding persistent items. 
+- `./persistent-item`: implementation of WavingSketch in finding persistent items. 
 
 - `./super-spreader`: implementation of WavingSketch in finding super-spreaders. 
 
