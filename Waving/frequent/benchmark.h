@@ -141,13 +141,13 @@ void BenchCmpRound(int fid)
 	if (fid==0)
 		items=read_skipping_data("../dataset/demo.dat", &cnt);
 	else if (fid==1)
-		items=read_data("../dataset/syn.dat", 4, &cnt);
+		items=read_data("../dataset/syn.dat", sizeof(data_type), &cnt);
 	else if (fid==2)
-		items=read_data("../dataset/CAIDA2018.dat", 4, &cnt);
+		items=read_data("../dataset/CAIDA2018.dat", sizeof(data_type), &cnt);
 	else if (fid==3)
-		items=read_data("../dataset/webpage.dat", 4, &cnt);
+		items=read_data("../dataset/webpage.dat", sizeof(data_type), &cnt);
 	else if (fid==4)
-		items=read_data("../dataset/campus.dat", 4, &cnt);
+		items=read_data("../dataset/campus.dat", sizeof(data_type), &cnt);
 	constexpr int32_t mem_base = 0;
 	constexpr int32_t mem_inc = 50000;
 	// constexpr int32_t num_inc = 10;
@@ -202,7 +202,10 @@ void BenchCmpRound(int fid)
 		}
 	}
 	std::cout << std::endl;
-	delete items;
+	if (fid==0)
+		delete items;
+	else
+		munmap(reinterpret_cast<void *>(items), cnt * sizeof(data_type));
 }
 
 void BenchElastic(int fid) {
@@ -212,13 +215,13 @@ void BenchElastic(int fid) {
 	if (fid==0)
 		items=read_skipping_data("../dataset/demo.dat", &cnt);
 	else if (fid==1)
-		items=read_data("../dataset/syn.dat", 4, &cnt);
+		items=read_data("../dataset/syn.dat", sizeof(data_type), &cnt);
 	else if (fid==2)
-		items=read_data("../dataset/CAIDA2018.dat", 4, &cnt);
+		items=read_data("../dataset/CAIDA2018.dat", sizeof(data_type), &cnt);
 	else if (fid==3)
-		items=read_data("../dataset/webpage.dat", 4, &cnt);
+		items=read_data("../dataset/webpage.dat", sizeof(data_type), &cnt);
 	else if (fid==4)
-		items=read_data("../dataset/campus.dat", 4, &cnt);
+		items=read_data("../dataset/campus.dat", sizeof(data_type), &cnt);
 	constexpr int32_t mem_base = 320000;
 	// constexpr int32_t mem_inc = 50000;
 	// constexpr int32_t num_inc = 10;
@@ -257,7 +260,10 @@ void BenchElastic(int fid) {
 		std::cout << std::endl;
 	}
 
-	delete items;
+	if (fid==0)
+		delete items;
+	else
+		munmap(reinterpret_cast<void *>(items), cnt * sizeof(data_type));
 }
 
 // Basic test function, to test ARE, CR, PR
@@ -268,13 +274,13 @@ void BenchCmp(int fid) {
 	if (fid==0)
 		items=read_skipping_data("../dataset/demo.dat", &cnt);
 	else if (fid==1)
-		items=read_data("../dataset/syn.dat", 4, &cnt);
+		items=read_data("../dataset/syn.dat", sizeof(data_type), &cnt);
 	else if (fid==2)
-		items=read_data("../dataset/CAIDA2018.dat", 4, &cnt);
+		items=read_data("../dataset/CAIDA2018.dat", sizeof(data_type), &cnt);
 	else if (fid==3)
-		items=read_data("../dataset/webpage.dat", 4, &cnt);
+		items=read_data("../dataset/webpage.dat", sizeof(data_type), &cnt);
 	else if (fid==4)
-		items=read_data("../dataset/campus.dat", 4, &cnt);
+		items=read_data("../dataset/campus.dat", sizeof(data_type), &cnt);
 	constexpr int32_t mem_base = 0;
 	constexpr int32_t mem_inc = 50000;
 	// constexpr int32_t num_inc = 10;
@@ -317,7 +323,10 @@ void BenchCmp(int fid) {
 		}
 	}
 
-	delete items;
+	if (fid==0)
+		delete items;
+	else
+		munmap(reinterpret_cast<void *>(items), cnt * sizeof(data_type));
 }
 
 // test the throughput of different algorithms
@@ -328,13 +337,13 @@ void BenchThp(int fid) {
 	if (fid==0)
 		items=read_skipping_data("../dataset/demo.dat", &cnt);
 	else if (fid==1)
-		items=read_data("../dataset/syn.dat", 4, &cnt);
+		items=read_data("../dataset/syn.dat", sizeof(data_type), &cnt);
 	else if (fid==2)
-		items=read_data("../dataset/CAIDA2018.dat", 4, &cnt);
+		items=read_data("../dataset/CAIDA2018.dat", sizeof(data_type), &cnt);
 	else if (fid==3)
-		items=read_data("../dataset/webpage.dat", 4, &cnt);
+		items=read_data("../dataset/webpage.dat", sizeof(data_type), &cnt);
 	else if (fid==4)
-		items=read_data("../dataset/campus.dat", 4, &cnt);
+		items=read_data("../dataset/campus.dat", sizeof(data_type), &cnt);
 
 	constexpr int32_t mem_base = 0;
 	constexpr int32_t mem_inc = 50000;
@@ -388,5 +397,8 @@ void BenchThp(int fid) {
 		}
 	}
 
-	delete items;
+	if (fid==0)
+		delete items;
+	else
+		munmap(reinterpret_cast<void *>(items), cnt * sizeof(data_type));
 }

@@ -14,12 +14,7 @@ The contents of other sources are consistent with their names.
 
 ## How to Run
 
-To run the code, you first need to download the dataset
-from https://drive.google.com/file/d/1jau6Yc4H4wrYvj-c9Ci1XXnI_1ICdlsm/view?usp=sharing
-. This is a dataset genreated with the opensource tool
-webpolygraph(http://www.web-polygraph.org/). You should create a
-directory `dataset` that is in the same directory with directory `simd`, and put
-the downloaded dataset there.
+We provide a small sample dataset in `./dataset/syn.dat`. You can download the full synthetic dataset from https://drive.google.com/file/d/1jau6Yc4H4wrYvj-c9Ci1XXnI_1ICdlsm/view?usp=sharing, and replace the sample dataset with it. This is a dataset genreated with the opensource tool webpolygraph(http://www.web-polygraph.org/). 
 
 Since the SIMD code uses AVX-512 instructions, you must have your CPU AVX512-supported. 
 

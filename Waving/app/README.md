@@ -3,11 +3,11 @@
 
 ## File Description
 
-- `./change`: implementation of WavingSketch in finding heavy changes. 
+- `./heavy-change`: implementation of WavingSketch in finding heavy changes. 
 
-- `./Persistent`: implementation of WavingSketch in finding persistent items. 
+- `./persistent`: implementation of WavingSketch in finding persistent items. 
 
-- `./super`: implementation of WavingSketch in finding super-spreaders. 
+- `./super-spreader`: implementation of WavingSketch in finding super-spreaders. 
 
 
 ## How to Run

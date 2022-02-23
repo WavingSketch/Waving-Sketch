@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const string folder = "../dataset/";
+const string folder = "./dataset/";
 const string filenames[] = {"syn.dat"};
 
 int main() {
