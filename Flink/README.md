@@ -4,7 +4,7 @@ We implement WavingSketch on top of Apache Flink to show that our solution can b
 processing framework and work in distributed environment. The results show that WavingSketch can smoothly work on top of
 Flink framework.
 
-## File description
+## File Structure
 
 `wavingsketch/WavingSketch.java`: The implementation of the basic WavingSketch.
 
@@ -18,7 +18,7 @@ Flink framework.
 
 `flink.dat`: The sample input file, which is generated based on CAIDA datasets.
 
-## Input file
+## Input File
 
 We generate the input file based on CAIDA datasets. We present a sample dataset `flink.dat` here, which consists of
 1,000,000 items, among which 39,954 items are distinct. For the full CAIDA datasets, please register
