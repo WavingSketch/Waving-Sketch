@@ -1,6 +1,6 @@
 # WavingSketch: An Unbiased and Generic Sketch for Finding Top-k Items in Data Streams
 
-This repository contains all related code of our paper "WavingSketch: An Unbiased and Generic Sketch for Finding Top-k Items in Data Streams". 
+This repository contains all related codes of our paper "WavingSketch: An Unbiased and Generic Sketch for Finding Top-k Items in Data Streams". 
 
 ## Introduction
 
