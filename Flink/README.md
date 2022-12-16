@@ -6,15 +6,15 @@ Flink framework.
 
 ## File description
 
-`wavingsketch/WavingSketch.java`: The implementation of the basic WavingSketch.
+`./src/WavingSketch.java`: The implementation of the basic WavingSketch.
 
-`wavingsketch/WavingSketchFunction.java`: A wrapper class which wraps the original WavingSketch.
+`./src/WavingSketchFunction.java`: A wrapper class which wraps the original WavingSketch.
 
-`wavingsketch/WavingSketchJob.java`: The implementation of the main method, which gets its input stream by reading the (HDFS) file, and insert them into the WavingSketch.
+`./src/WavingSketchJob.java`: The implementation of the main method, which gets its input stream by reading the (HDFS) file, and insert them into the WavingSketch.
 
-`wavingsketch/Murmur.java`: A hash function, the algorithm of which is almost the same as the C++ implementation from https://github.com/MapEmbed/MapEmbed/blob/master/CPU/MapEmbed/murmur3.h
+`./src/Murmur.java`: A hash function, the algorithm of which is almost the same as the C++ implementation from https://github.com/MapEmbed/MapEmbed/blob/master/CPU/MapEmbed/murmur3.h
 
-`wavingsketch/WavingSketchTest.java`: A benchmark for testing, which can output similar result to the C++ implementation.
+`./src/WavingSketchTest.java`: A benchmark for testing, which can output similar result to the C++ implementation.
 
 `flink.dat`: The sample input file, which is generated based on CAIDA datasets.
 
