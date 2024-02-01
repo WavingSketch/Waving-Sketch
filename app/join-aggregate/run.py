@@ -9,8 +9,8 @@ key_len = '13'
 
 os.system('cd src && make && cd ..')
 
-for i in range(1, 7):    
-    for j in range(10, 201, 10):
+for i in [0, 1]:    
+    for j in range(100, 201, 10):
         version = str(i)
         memory = str(j * 1000)
 

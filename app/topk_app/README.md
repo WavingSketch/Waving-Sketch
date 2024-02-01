@@ -13,6 +13,11 @@ This folder contains the codes of WavingSketch and the related algorithms on thr
 
 - `./super-spreader`: implementation of WavingSketch in finding super-spreaders. 
 
+## Requirements
+
+- CMake
+- g++
+- C++11
 
 ## How to run
 
@@ -31,10 +36,10 @@ $ make
 
 Finally, run the following command to generate the results. 
 ```
-$ ./bench
+$ ./bench [filename] [keylen]
 ```
+1. `[filename]`: The path of the dataset you want to run. 
+2. `[keylen]`: An integer, representing the length of each entry in the dataset.
 
-The results will be shown on the screen. 
 
-
-By default, we use the small sample dataset `demo.dat` in `../../dataset`. You can modify the constant string `FOLDER` in `main.cpp` to specify other datasets. 
+The results will be shown on the screen. After the program completes the calculation, we will output statistical tables of several different indicators (ARE, PR, RR, F1, etc.) for you to analyze.

@@ -11,9 +11,10 @@ Finding top-k items in data streams is a fundamental problem in data mining. Unb
 
 - `frequent` contains codes of WavingSketch (including Multi-Counter WavingSketch) and the algorithms we compared with in the application of finding frequent items. 
 
-- `app` contains codes of WavingSketch and the related algorithms in the other four applications: finding heavy changes, finding persistent items, finding Super-Spreaders, and join-aggregate estimation.  
+- `app` contains codes of WavingSketch and the related algorithms in the other six applications:  finding top-k heavy changes, 
+finding top-k persistent items, finding top-k Super-Spreaders, finding global top-k, subset query, and join-aggregate estimation.
 
-- `elastic` contains codes to evaluate the performance of the elastic operations of WavingSketch. In this folder, we implement WavingSketch (including Multi-Counter WavingSketch) and the related algortihms using SIMD instructions. 
+- `elastic` contains codes to evaluate the performance of the elastic operations and automatic memory adjustment of WavingSketch. In this folder, we implement WavingSketch (including Multi-Counter WavingSketch) and the related algortihms using SIMD instructions. 
 
 - `dataset` contains two small dataset shards to run our tests. We also upload our synthetic datasets to google drive and leave a link here. 
 

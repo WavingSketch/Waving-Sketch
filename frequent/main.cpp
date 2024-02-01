@@ -1,31 +1,47 @@
-#pragma GCC optimize(2)
-#include "benchmark.h"
-#include <string>
 #include <iostream>
+#include <string>
+
+#include "benchmark.h"
 
 using namespace std;
 
-int main() {
-	// =========Dataset=========
-	// | fid=0: demo           |
-	// | fid=1: synthetic      |
-	// | fid=2: CAIDA18        |
-	// | fid=3: webpage        |
-	// | fid=4: campus         |
-	// =========================
-
-
-	int fid = 0;
-	printf("\033[0m\033[1;32m===========================================================================================\n\033[0m");
-	printf("\033[0m\033[1;32m|                                Waving Sketch Experiments                                |\n\033[0m");
-	printf("\033[0m\033[1;32m===========================================================================================\n\033[0m");
-	printf("\033[0m\033[1;32m|                                   1. Test on Accuracy                                   |\n\033[0m");
-	printf("\033[0m\033[1;32m===========================================================================================\n\033[0m");
-	BenchCmp(fid);
-	printf("\033[0m\033[1;32m===========================================================================================\n\033[0m");
-	printf("\033[0m\033[1;32m|                                  2. Test on Throughput                                  |\n\033[0m");
-	printf("\033[0m\033[1;32m===========================================================================================\n\033[0m");
-	BenchThp(fid);
-	printf("\033[0m\033[1;32m===========================================================================================\n\033[0m");
-
+int record_length;
+std::string FILE_NAME;
+const string RESULT_FOLDER = "./";
+int main(int argc, char* argv[]) {
+	if (argc > 2)
+	{
+		FILE_NAME = argv[1];
+		record_length = std::stoi(argv[2]);
+	}
+	else
+	{
+		std::cout << "Please Input the dataset path:";
+		std::cin >> FILE_NAME;
+		std::cout << "Please Input the length of record in dtaset:";
+		std::cin >> record_length;
+	}
+		printf(
+			"\033[0m\033[1;32m|                                Waving Sketch "
+			"Experiments                                |\n\033[0m");
+		printf(
+			"\033[0m\033[1;32m======================================================="
+			"====================================\n\033[0m");
+		printf(
+			"\033[0m\033[1;32m|                                   1. Test on "
+			"Accuracy                                   |\n\033[0m");
+		printf(
+			"\033[0m\033[1;32m======================================================="
+			"====================================\n\033[0m");
+		BenchCmp(FILE_NAME);
+		printf(
+			"\033[0m\033[1;32m|                                  2. Test on "
+			"Throughput                                  |\n\033[0m");
+		printf(
+			"\033[0m\033[1;32m======================================================="
+			"====================================\n\033[0m");
+		BenchThp(FILE_NAME);
+		printf(
+			"\033[0m\033[1;32m======================================================="
+			"====================================\n\033[0m");
 }

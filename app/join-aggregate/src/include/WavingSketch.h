@@ -96,7 +96,7 @@ class WavingSketch : public Sketch {
       uint32_t whichcast = hash32(item, seed_incast) % counter_num;
       uint32_t choice = hash32(item, seed_s) & 1;
       auto ret = incast[whichcast] * COUNT[choice];
-      return 0;
+      return ret;
     }
 
     long double Join1(const Bucket &other, uint32_t seed_s,

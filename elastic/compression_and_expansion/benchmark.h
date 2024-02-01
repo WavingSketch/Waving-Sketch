@@ -13,22 +13,32 @@
 typedef std::chrono::high_resolution_clock::time_point TP;
 
 inline TP now() { return std::chrono::high_resolution_clock::now(); }
+extern int record_length;
+data_type* read_standard_data(const char* PATH, int interval, int* cnt) {
+    std::vector<data_type> items;
+    uint8_t* it = new uint8_t[interval];
 
-data_type *read_data(const char *PATH, const count_type length,
-                     count_type *cnt) {
-  data_type *items = new data_type[length];
-  data_type *it = items;
-
-  FILE *data = fopen(PATH, "rb");
-
-  *cnt = 0;
-  while (fread(it++, sizeof(data_type), 1, data) > 0) {
-    (*cnt)++;
-  }
-
-  fclose(data);
-
-  return items;
+    FILE* data = fopen(PATH, "rb");
+    if (data == NULL)
+    {
+        std::cout << "File don't exist\n";
+        exit(0);
+    }
+    *cnt = 0;
+    int t;
+    while (fread(it, interval, 1, data) > 0)
+    {
+        (*cnt)++;
+        data_type a = *(data_type*)it;
+        items.push_back(a);
+    }
+    data_type* ret = new data_type[*cnt];
+    for (size_t i = 0; i < *cnt; i++)
+    {
+        ret[i] = items[i];
+    }
+    fclose(data);
+    return ret;
 }
 
 uint32_t Get_TopK(HashMap mp, uint32_t k) {
@@ -52,15 +62,16 @@ void BenchCmp(const char *PATH) {
             << std::endl
             << std::endl;
   count_type cnt;
-  data_type *items = read_data(PATH, 100000000, &cnt);
-
+  data_type *items = read_standard_data(PATH, record_length, &cnt);
+  std::cout << "Total " << cnt << " items" << std::endl;
   constexpr int32_t mem_base = 0;
   constexpr int32_t mem_inc = 50000;
   constexpr int32_t mem_var = 6;
   constexpr int32_t cmp_num = 19;
 
   Abstract *sketches[mem_var][cmp_num];
-
+  int heap_size = 2500;
+  std::cout << "Start\n";
   for (int i = 0; i < mem_var; ++i) {
     sketches[i][0] = new WavingSketch<4>(
         (i + 1) * mem_inc / sizeof(WavingSketch<4>::Bucket));
@@ -72,7 +83,7 @@ void BenchCmp(const char *PATH) {
         (i + 1) * mem_inc / sizeof(WavingSketch<32>::Bucket));
     sketches[i][4] = new SS((i + 1) * mem_inc / 100);
     sketches[i][5] = new USS((i + 1) * mem_inc / 100);
-    sketches[i][6] = new Count_Heap(2500, ((i + 1) * mem_inc - 120000) / 12, 3);
+    sketches[i][6] = new Count_Heap(heap_size, ((i + 1) * mem_inc - heap_size * sizeof(Heap::Counter)) / 12, 3);
     sketches[i][7] = new WavingSketchSIMD128(
         (i + 1) * mem_inc / sizeof(WavingSketchSIMD128::Bucket));
     sketches[i][8] = new WavingSketchSIMD256(
@@ -98,7 +109,7 @@ void BenchCmp(const char *PATH) {
     sketches[i][18] = new WSSIMDMC1024(
         (i + 1) * mem_inc / sizeof(WSSIMDMC1024::Bucket));
   }
-
+  std::cout << "Start\n";
   // Ground truth
   HashMap mp;
   for (int l = 0; l < cnt; ++l) {
@@ -107,6 +118,7 @@ void BenchCmp(const char *PATH) {
     else
       mp[items[l]] += 1;
   }
+  std::cout << "Start\n";
   uint32_t topK = Get_TopK(mp, 2000);
 
   for (int i = 0; i < mem_var; ++i) {
@@ -135,7 +147,7 @@ void BenchThp(const char *PATH) {
             << std::endl;
 
   count_type cnt;
-  data_type *items = read_data(PATH, 100000000, &cnt);
+  data_type *items = read_standard_data(PATH, record_length, &cnt);
 
   constexpr int32_t mem_base = 0;
   constexpr int32_t mem_inc = 50000;
@@ -154,7 +166,7 @@ void BenchThp(const char *PATH) {
 
     double thp[round][cmp_num] = {};
     double avg_thp[cmp_num] = {};
-
+    int heap_size = 2500;
     for (int j = 0; j < round; ++j) {
       sketches[i][0] = new WavingSketch<4>(
           (mem_base + (i + 1) * mem_inc) / sizeof(WavingSketch<4>::Bucket));
@@ -167,7 +179,7 @@ void BenchThp(const char *PATH) {
       sketches[i][4] = new SS((mem_base + mem_inc * (i + 1)) / 100);
       sketches[i][5] = new USS((mem_base + mem_inc * (i + 1)) / 100);
       sketches[i][6] =
-          new Count_Heap(2500, ((i + 1) * mem_inc - 120000) / 12, 3);
+          new Count_Heap(heap_size, ((i + 1) * mem_inc - heap_size * sizeof(Heap::Counter)) / 12, 3);
       sketches[i][7] = new WavingSketchSIMD128(
           (mem_base + (i + 1) * mem_inc) / sizeof(WavingSketchSIMD128::Bucket));
       sketches[i][8] = new WavingSketchSIMD256(
@@ -236,7 +248,7 @@ void BenchCompress(const char *PATH) {
   std::cout << "Comparison with compressed WavingSketch on ARE, CR and PR"
             << std::endl;
   count_type cnt;
-  data_type *items = read_data(PATH, 100000000, &cnt);
+  data_type* items = read_standard_data(PATH, record_length, &cnt);
 
   // mem_size[i] = mem_base * mem_map[i] (i < mem_var)
   constexpr int32_t mem_base = 10000;
@@ -305,7 +317,7 @@ void BenchExpand(const char *PATH) {
   std::cout << "Comparison with expanded WavingSketch on ARE, CR and PR"
             << std::endl;
   count_type cnt;
-  data_type *items = read_data(PATH, 100000000, &cnt);
+  data_type* items = read_standard_data(PATH, record_length, &cnt);
 
   constexpr int32_t mem_base = 10000;
   constexpr int32_t mem_amp[] = {1, 2, 4, 8, 16, 32};
@@ -394,7 +406,7 @@ void BenchCompressMC(const char *PATH) {
   std::cout << "Comparison with compressed WavingSketchMC on ARE, CR and PR"
             << std::endl;
   count_type cnt;
-  data_type *items = read_data(PATH, 100000000, &cnt);
+  data_type* items = read_standard_data(PATH, record_length, &cnt);
 
   // mem_size[i] = mem_base * mem_map[i] (i < mem_var)
   constexpr int32_t mem_base = 10000;
@@ -463,7 +475,7 @@ void BenchExpandMC(const char *PATH) {
   std::cout << "Comparison with expanded WavingSketchMC on ARE, CR and PR"
             << std::endl;
   count_type cnt;
-  data_type *items = read_data(PATH, 100000000, &cnt);
+  data_type* items = read_standard_data(PATH, record_length, &cnt);
 
   constexpr int32_t mem_base = 10000;
   constexpr int32_t mem_amp[] = {1, 2, 4, 8, 16, 32};
