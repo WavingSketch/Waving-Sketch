@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.9)
+project(bench)
+
+set(CMAKE_CXX_STANDARD 14)
+add_compile_options(-march=native -O2)
+
+add_executable(frequent include/LD-Sketch/hash.c include/LD-Sketch/dyn_tbl.hpp include/LD-Sketch/dyn_tbl.cpp include/LD-Sketch/LDSketch.hpp include/LD-Sketch/LDSketch.cpp include/SpreadSketch/spreadhash.cpp include/SpreadSketch/bitmap.cpp include/SpreadSketch/datatypes.hpp include/SpreadSketch/spreadsketch.hpp include/SpreadSketch/spreadsketch.cpp experiments/frequent/main.cpp)
+add_executable(globalTopK include/LD-Sketch/hash.c include/LD-Sketch/dyn_tbl.hpp include/LD-Sketch/dyn_tbl.cpp include/LD-Sketch/LDSketch.hpp include/LD-Sketch/LDSketch.cpp include/SpreadSketch/spreadhash.cpp include/SpreadSketch/bitmap.cpp include/SpreadSketch/datatypes.hpp include/SpreadSketch/spreadsketch.hpp include/SpreadSketch/spreadsketch.cpp experiments/app/global-TopK/main.cpp)
+add_executable(autoAdjustment include/LD-Sketch/hash.c include/LD-Sketch/dyn_tbl.hpp include/LD-Sketch/dyn_tbl.cpp include/LD-Sketch/LDSketch.hpp include/LD-Sketch/LDSketch.cpp include/SpreadSketch/spreadhash.cpp include/SpreadSketch/bitmap.cpp include/SpreadSketch/datatypes.hpp include/SpreadSketch/spreadsketch.hpp include/SpreadSketch/spreadsketch.cpp experiments/elastic/automatic_memory_adjustment/main.cpp)
+add_executable(subsetSum include/LD-Sketch/hash.c include/LD-Sketch/dyn_tbl.hpp include/LD-Sketch/dyn_tbl.cpp include/LD-Sketch/LDSketch.hpp include/LD-Sketch/LDSketch.cpp include/SpreadSketch/spreadhash.cpp include/SpreadSketch/bitmap.cpp include/SpreadSketch/datatypes.hpp include/SpreadSketch/spreadsketch.hpp include/SpreadSketch/spreadsketch.cpp experiments/app/subset-sum/main.cpp)
+add_executable(heavyChange include/LD-Sketch/hash.c include/LD-Sketch/dyn_tbl.hpp include/LD-Sketch/dyn_tbl.cpp include/LD-Sketch/LDSketch.hpp include/LD-Sketch/LDSketch.cpp include/SpreadSketch/spreadhash.cpp include/SpreadSketch/bitmap.cpp include/SpreadSketch/datatypes.hpp include/SpreadSketch/spreadsketch.hpp include/SpreadSketch/spreadsketch.cpp experiments/app/topk_app/heavy-change/main.cpp)
+add_executable(persistentItem include/LD-Sketch/hash.c include/LD-Sketch/dyn_tbl.hpp include/LD-Sketch/dyn_tbl.cpp include/LD-Sketch/LDSketch.hpp include/LD-Sketch/LDSketch.cpp include/SpreadSketch/spreadhash.cpp include/SpreadSketch/bitmap.cpp include/SpreadSketch/datatypes.hpp include/SpreadSketch/spreadsketch.hpp include/SpreadSketch/spreadsketch.cpp experiments/app/topk_app/persistent-item/main.cpp)
+add_executable(superSpreader include/LD-Sketch/hash.c include/LD-Sketch/dyn_tbl.hpp include/LD-Sketch/dyn_tbl.cpp include/LD-Sketch/LDSketch.hpp include/LD-Sketch/LDSketch.cpp include/SpreadSketch/spreadhash.cpp include/SpreadSketch/bitmap.cpp include/SpreadSketch/datatypes.hpp include/SpreadSketch/spreadsketch.hpp include/SpreadSketch/spreadsketch.cpp experiments/app/topk_app/super-spreader/main.cpp)
+
