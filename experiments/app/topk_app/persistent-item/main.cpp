@@ -6,7 +6,6 @@ const string RESULT_FOLDER = "./";
 int record_length;
 string FILE_NAME;
 
-
 int main(int argc, char* argv[]) {
 	if (argc > 2)
 	{

@@ -23,7 +23,17 @@ Finding top-k items in data streams is a fundamental problem in data mining. Unb
 - C++11
 
 ## How to run
-### Normal Experiment
+### Basic Experiments
+contains the experiments of WavingSketch and the related algorithms on six applications:
+1. finding frequent items
+2. finding top-k heavy changes 
+3. finding top-k persistent items
+4. finding top-k Super-Spreaders
+5. finding global top-k
+6. subset query
+
+Besides, We evaluate the performance of WavingSketch on automatic memory adjustment. 
+
 first run the following command to generate a Makefile. 
 ```
 $ mkdir build
@@ -38,10 +48,11 @@ $ make
 
 Finally, run the following command to generate the results. 
 ```
-$ ./bench [filename] [keylen]
+$ ./[program] [filename] [keylen]
 ```
-1. `[filename]`: The path of the dataset you want to run. 
-2. `[keylen]`: An integer, representing the length of each entry in the dataset.
+1. `[program]`: The executable program of different experiments.
+2. `[filename]`: The path of the dataset you want to run. 
+3. `[keylen]`: An integer, representing the length of each entry in the dataset.
 
 ### Flink
 Needs to be compiled separately to generate an executable program.the More details can be found in the folders.

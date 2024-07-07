@@ -9,7 +9,6 @@
 
 #include "abstract.h"
 #include "./bitset.h"
-
 using namespace std;
 #define factor 1
 template <uint32_t slot_num, uint32_t counter_num, uint32_t DATA_LEN>
@@ -107,6 +106,8 @@ public:
 	{
 		this->HIT = _HIT;
 		this->name = (char*)"WavingSketch";
+		record = 0;
+		bitset = new BitSet(LENGTH);
 		buckets = new Bucket[BUCKET_NUM];
 		memset(buckets, 0, BUCKET_NUM * sizeof(Bucket));
 		this->rename(int(slot_num), int(counter_num));
@@ -211,7 +212,7 @@ public:
 		typename HashMap<DATA_LEN>::iterator it;
 		int value = 0, all = 0, hit = 0, size = 0;
 		for (it = mp.begin(); it != mp.end(); ++it) {
-			value = Query(it->first);
+			value = QueryTopK(it->first);
 			if (it->second > this->HIT) {
 				all++;
 				if (value > this->HIT) {
